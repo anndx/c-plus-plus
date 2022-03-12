@@ -10,6 +10,9 @@ int liczbaBakterii = 1;
 int godziny = 0;
 int liczba_z_przedzialu, liczba_strzelana, liczba_prob;
 int liczba_lotto;
+float oceny[5], suma_ocen=0;
+float srednia_aryt;
+int liczby_fib[100000], ile_liczb;
 
 int main()
 {
@@ -125,5 +128,37 @@ void LosowanieLotto()
         liczba_lotto = rand() % 49 + 1;
         Sleep(1000);
         cout << liczba_lotto << endl;
+    }
+}
+
+void SredniaOcen()
+{
+    cout << "Wpisz 5 ocen: " << endl;
+
+    for (int i = 0; i <= 4; i++)
+    {
+        cin >> oceny[i];
+        suma_ocen += oceny[i];
+    }
+
+    srednia_aryt = suma_ocen / 5;
+    cout << "Srednia arytmetyczna Twoich ocen: " << srednia_aryt << endl;
+}
+
+void CiagFibonacciego()
+{
+    cout << "Ile liczb Fibonacciego mam wyznaczyc? ";
+    cin >> ile_liczb;
+    liczby_fib[0] = 1;
+    liczby_fib[1] = 1;
+
+    for (int i = 2; i < ile_liczb; i++)
+    {
+        liczby_fib[i] = liczby_fib[i - 2] + liczby_fib[i - 1];
+    }
+
+    for (int i = 0; i < ile_liczb; i++)
+    {
+        cout << liczby_fib[i] << endl;
     }
 }
