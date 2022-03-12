@@ -12,25 +12,7 @@ int liczba_z_przedzialu, liczba_strzelana, liczba_prob;
 
 int main()
 {
-    cout << "Sprobuj odgadnac liczbe z przedzialu od 1 do 100:"<<endl;
 
-    srand(time(NULL));
-    liczba_z_przedzialu = rand() % 100 + 1;
-
-    while (liczba_strzelana != liczba_z_przedzialu)
-    {
-        liczba_prob++;
-
-        cout << "To twoja " << liczba_prob << " proba. Podaj liczbe: ";
-        cin >> liczba_strzelana;
-
-        if (liczba_strzelana == liczba_z_przedzialu)
-            cout << "Brawo! Wygrales w " << liczba_prob << " probie." << endl;
-        else if (liczba_strzelana > liczba_z_przedzialu)
-            cout << "Za duzo" << endl;
-        else 
-            cout << "Za malo" << endl;
-    }
 
 }
 
@@ -104,5 +86,28 @@ void MnozenieBakterii()
         godziny++;
         liczbaBakterii *= 2;
         cout << "Godzina: " << godziny << " Populacja bakterii: " << liczbaBakterii << endl;
+    }
+}
+
+void ZgadnijLiczbe()
+{
+    cout << "Sprobuj odgadnac liczbe z przedzialu od 1 do 100:" << endl;
+
+    srand(time(NULL));
+    liczba_z_przedzialu = rand() % 100 + 1;
+
+    while (liczba_strzelana != liczba_z_przedzialu)
+    {
+        liczba_prob++;
+
+        cout << "To twoja " << liczba_prob << " proba. Podaj liczbe: ";
+        cin >> liczba_strzelana;
+
+        if (liczba_strzelana == liczba_z_przedzialu)
+            cout << "Brawo! Wygrales w " << liczba_prob << " probie." << endl;
+        else if (liczba_strzelana > liczba_z_przedzialu)
+            cout << "Za duzo" << endl;
+        else
+            cout << "Za malo" << endl;
     }
 }
