@@ -9,6 +9,7 @@ int liczbaPowtorzen;
 int liczbaBakterii = 1;
 int godziny = 0;
 int liczba_z_przedzialu, liczba_strzelana, liczba_prob;
+int liczba_lotto;
 
 int main()
 {
@@ -109,5 +110,20 @@ void ZgadnijLiczbe()
             cout << "Za duzo" << endl;
         else
             cout << "Za malo" << endl;
+    }
+}
+
+void LosowanieLotto()
+{
+    cout << "Witaj! Za 3s rozpocznie sie losowanie." << endl << endl;
+    Sleep(3000);
+
+    srand(time(NULL));
+
+    for (int i = 1; i <= 6; i++)
+    {
+        liczba_lotto = rand() % 49 + 1;
+        Sleep(1000);
+        cout << liczba_lotto << endl;
     }
 }
