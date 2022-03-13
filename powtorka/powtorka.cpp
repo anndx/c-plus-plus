@@ -1,5 +1,7 @@
 ﻿#include <iostream>
 #include <Windows.h>
+#include <conio.h>
+
 using namespace std;
 string PIN;
 string login, haslo;
@@ -10,13 +12,15 @@ int liczbaBakterii = 1;
 int godziny = 0;
 int liczba_z_przedzialu, liczba_strzelana, liczba_prob;
 int liczba_lotto;
-float oceny[5], suma_ocen=0;
+float oceny[5], suma_ocen = 0;
 float srednia_aryt;
 int liczby_fib[100000], ile_liczb;
+float liczba1, liczba2;
+int wybor;
+int nr_miesiaca;
 
 int main()
 {
-
 
 }
 
@@ -160,5 +164,89 @@ void CiagFibonacciego()
     for (int i = 0; i < ile_liczb; i++)
     {
         cout << liczby_fib[i] << endl;
+    }
+}
+
+void Kalkulator()
+{
+    for (;;)
+    {
+        cout << "Podaj 1 liczbe: ";
+        cin >> liczba1;
+        cout << "Podaj 2 liczbe: ";
+        cin >> liczba2;
+
+        cout << "MENU" << endl;
+        cout << "---------------" << endl;
+        cout << "1. Dodawanie" << endl;
+        cout << "2. Odejmowanie" << endl;
+        cout << "3. Mnozenie" << endl;
+        cout << "4. Dzielenie" << endl;
+        cout << "5. Opusc program" << endl;
+        cout << "Wybierz funkcje: " << endl;
+        wybor = _getch();
+
+        switch (wybor)
+        {
+        case '1':
+            cout << "Suma: " << (liczba1 + liczba2);
+            break;
+        case '2':
+            cout << "Roznica: " << (liczba1 - liczba2);
+            break;
+        case '3':
+            cout << "Iloczyn: " << (liczba1 * liczba2);
+            break;
+        case '4':
+        {
+            if (liczba2 == 0)
+                cout << "Nie dzielimy przez 0!";
+            else
+                cout << "Iloraz: " << (liczba1 / liczba2);
+        }
+        break;
+        case '5':
+            exit(0);
+        default:
+            cout << "Nie ma takiej opcji w menu.";
+            break;
+        }
+        getchar(); getchar();
+        system("cls");
+    }
+}
+
+void DniMiesiaca()
+{
+    cout << "Podaj numer miesiaca: ";
+    if (!(cin >> nr_miesiaca))
+    {
+        cerr << "To nie jest liczba!" << endl;
+        exit(0);
+    }
+
+    switch (nr_miesiaca)
+    {
+    case 1:
+    case 3:
+    case 5:
+    case 7:
+    case 8:
+    case 10:
+    case 12:
+        cout << "Ten miesiac ma 31 dni." << endl;
+        break;
+    case 4:
+    case 6:
+    case 9:
+    case 11:
+        cout << "Ten miesiac ma 30 dni." << endl;
+        break;
+    case 2:
+        cout << "Ten miesiac ma 28 lub 29 dni." << endl;
+        break;
+    default:
+        cout << "Nieprawidlowy numer miesiaca" << endl;
+        break;
     }
 }
