@@ -1,12 +1,14 @@
 ﻿#include <iostream>
 #include <Windows.h>
 #include <conio.h>
+#include <fstream>
+#include <string>
 
 using namespace std;
 string PIN;
 string login, haslo;
 int wiek;
-string imie;
+string imie, nazwisko;
 int liczbaPowtorzen;
 int liczbaBakterii = 1;
 int godziny = 0;
@@ -18,9 +20,11 @@ int liczby_fib[100000], ile_liczb;
 float liczba1, liczba2;
 int wybor;
 int nr_miesiaca;
+int nr_telefonu;
 
 int main()
 {
+
 
 }
 
@@ -249,4 +253,49 @@ void DniMiesiaca()
         cout << "Nieprawidlowy numer miesiaca" << endl;
         break;
     }
+}
+
+void WyslijDaneDoPliku()
+{
+    cout << "Podaj swoje imie: ";
+    cin >> imie;
+    cout << "Podaj swoje nazwisko: ";
+    cin >> nazwisko;
+    cout << "Podaj numer telefonu: ";
+    cin >> nr_telefonu;
+
+    fstream plik;
+    plik.open("wizytowka.txt", ios::out | ios::app);
+    plik << imie << endl;
+    plik << nazwisko << endl;
+    plik << nr_telefonu << endl;
+    plik.close();
+}
+
+void WczytajDaneZPliku()
+{
+    fstream plik;
+    plik.open("wizytowka.txt", ios::in);
+
+    string linia;
+    int nr_linii = 1;
+    while (getline(plik, linia))
+    {
+        switch (nr_linii)
+        {
+        case 1: imie = linia;
+            break;
+        case 2: nazwisko = linia;
+            break;
+        case 3: nr_telefonu = atoi(linia.c_str());
+            break;
+        }
+        nr_linii++;
+
+    }
+
+    cout << imie << endl;
+    cout << nazwisko << endl;
+    cout << nr_telefonu << endl;
+    plik.close();
 }
