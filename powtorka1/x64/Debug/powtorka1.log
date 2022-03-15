@@ -1,4 +1,4 @@
 ﻿  powtorka1.cpp
-C:\Users\Ania\Desktop\c plus plus\powtorka\powtorka1\powtorka1.cpp(156,15): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
-C:\Users\Ania\Desktop\c plus plus\powtorka\powtorka1\powtorka1.cpp(180,15): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+C:\Users\Ania\Desktop\c plus plus\powtorka\powtorka1\powtorka1.cpp(181,15): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+C:\Users\Ania\Desktop\c plus plus\powtorka\powtorka1\powtorka1.cpp(205,15): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
   powtorka1.vcxproj -> C:\Users\Ania\Desktop\c plus plus\powtorka\powtorka1\x64\Debug\powtorka1.exe

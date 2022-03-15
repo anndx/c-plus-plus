@@ -22,57 +22,11 @@ int wybor;
 int nr_miesiaca;
 int nr_telefonu;
 string temat, nick;
-string tresc[5], odpA[5], odpB[5], odpC[5], odpD[5], poprawna[5];
+string tresc[5], odpA[5], odpB[5], odpC[5], odpD[5], odpowiedz[5], poprawna[5];
 
 int main()
 {
-    fstream plik;
-    plik.open("quiz.txt", ios::in);
 
-    string linia;
-    int nr_linii = 1;
-
-    if (plik.good() == false)
-        cout << "Nie udalo sie otworzyc pliku.";
-
-    for (int i = 0; i < 5; i++)
-    {
-        while (getline(plik,linia) && nr_linii < 8)
-        {
-            switch (nr_linii)
-            {
-            case 1:
-                temat = linia;
-                break;
-            case 2:
-                tresc[i] = linia;
-                break;
-            case 3:
-                odpA[i] = linia;
-                break;
-            case 4:
-                odpB[i] = linia;
-
-                break;
-            case 5:
-                odpC[i] = linia;
-                break;
-            case 6:
-                odpD[i] = linia;
-                break;
-            case 7:
-                poprawna[i] = linia;
-                break;
-            }
-            cout << linia << endl;
-            nr_linii++;
-
-        }
-
-    }
-    cout << temat << endl;
-
-    plik.close();
 
 }
 
@@ -346,4 +300,63 @@ void WczytajDaneZPliku()
     cout << nazwisko << endl;
     cout << nr_telefonu << endl;
     plik.close();
+}
+
+void Quiz()
+{
+    fstream plik;
+    plik.open("quiz.txt", ios::in);
+
+    string linia;
+    int nr_linii = 1, nr_pytania = 1, liczba_pktow = 0;
+
+    if (plik.good() == false)
+        cout << "Nie udalo sie otworzyc pliku.";
+
+    while (getline(plik, linia))
+    {
+        switch (nr_linii)
+        {
+        case 1:
+            temat = linia;
+            break;
+        case 2:
+            tresc[nr_pytania - 1] = linia;
+            break;
+        case 3:
+            odpA[nr_pytania - 1] = linia;
+            break;
+        case 4:
+            odpB[nr_pytania - 1] = linia;
+
+            break;
+        case 5:
+            odpC[nr_pytania - 1] = linia;
+            break;
+        case 6:
+            odpD[nr_pytania - 1] = linia;
+            break;
+        case 7:
+            poprawna[nr_pytania - 1] = linia;
+            break;
+        }
+
+        if (nr_linii == 7) { nr_linii = 1, nr_pytania++; }
+        nr_linii++;
+    }
+
+    plik.close();
+    for (int i = 0; i <= 4; i++)
+    {
+        cout << tresc[i] << endl;
+        cout << "a) " << odpA[i] << endl;
+        cout << "b) " << odpB[i] << endl;
+        cout << "c) " << odpC[i] << endl;
+        cout << "d) " << odpD[i] << endl;
+        cout << "Twoja odpowiedz: ";
+        cin >> odpowiedz[i];
+        if (odpowiedz[i] == poprawna[i])
+            liczba_pktow++;
+    }
+    cout << "Ukonczyles quiz! Liczba zdobytych punktow: " << liczba_pktow;s
 }
