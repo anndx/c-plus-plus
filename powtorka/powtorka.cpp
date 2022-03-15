@@ -21,10 +21,58 @@ float liczba1, liczba2;
 int wybor;
 int nr_miesiaca;
 int nr_telefonu;
+string temat, nick;
+string tresc[5], odpA[5], odpB[5], odpC[5], odpD[5], poprawna[5];
 
 int main()
 {
+    fstream plik;
+    plik.open("quiz.txt", ios::in);
 
+    string linia;
+    int nr_linii=1;
+
+    if (plik.good() == false)
+        cout << "Nie udalo sie otworzyc pliku.";
+
+    for (int i = 0; i < 5; i++)
+    {
+        while (nr_linii < 8)
+        {
+            switch (nr_linii)
+            {
+            case 1:
+                temat = linia;
+                break;
+            case 2:
+                tresc[i] = linia;
+                break;
+            case 3:
+                odpA[i] = linia;
+                break;
+            case 4:
+                odpB[i] = linia;
+
+                break;
+            case 5:
+                odpC[i] = linia;
+                break;
+            case 6:
+                odpD[i] = linia;
+                break;
+            case 7:
+                poprawna[i] = linia;
+                break;
+            }
+            cout << linia << endl;
+            nr_linii++;
+
+        }
+        
+    }
+    cout << temat << endl;
+
+    plik.close();
 
 }
 
