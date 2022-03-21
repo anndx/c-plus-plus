@@ -24,9 +24,25 @@ int nr_telefonu;
 string temat, nick;
 string tresc[5], odpA[5], odpB[5], odpC[5], odpD[5], odpowiedz[5], poprawna[5];
 
+void PINnumb();
+void Login();
+void Wiek();
+void OdliczanieFor();
+void PowtorzeniaImienia();
+void MnozenieBakterii();
+void ZgadnijLiczbe();
+void LosowanieLotto();
+void SredniaOcen();
+void CiagFibonacciego();
+void Kalkulator();
+void DniMiesiaca();
+void WyslijDaneDoPliku();
+void WczytajDaneZPliku();
+void Quiz();
+
 int main()
 {
-
+    Quiz();
 
 }
 
@@ -358,5 +374,5 @@ void Quiz()
         if (odpowiedz[i] == poprawna[i])
             liczba_pktow++;
     }
-    cout << "Ukonczyles quiz! Liczba zdobytych punktow: " << liczba_pktow;s
+    cout << "Ukonczyles quiz! Liczba zdobytych punktow: " << liczba_pktow;
 }
